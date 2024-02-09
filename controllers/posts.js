@@ -32,7 +32,14 @@ async function index(req, res){
 }
 
 async function show(req, res){
-
+  try {
+    const post = await Post.findById(req.params.postId)
+    .populate('carPal')
+    res.json(post)
+  } catch (error) {
+    console.log(error)
+    res.json(error)
+  }
 }
 
 export {
