@@ -2,4 +2,10 @@ import { Profile } from "../models/profile.js"
 import { Post } from "../models/post.js"
 
 
-export { }
+async function create(req, res){
+
+}
+
+export {
+  create,
+ }
