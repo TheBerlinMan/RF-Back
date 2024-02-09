@@ -20,7 +20,15 @@ async function create(req, res){
 }
 
 async function index(req, res){
-
+  try {
+    const posts = await Post.find({})
+    .populate('carPal')
+    .sort({ createdAt: 'desc' })
+    res.json(posts)
+  } catch (error) {
+    console.log(error)
+    res.json(error)
+  }
 }
 
 export {
