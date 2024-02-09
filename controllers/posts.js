@@ -43,7 +43,17 @@ async function show(req, res){
 }
 
 async function update(req, res){
-
+  try {
+    const post = await Post.findByIdAndUpdate(
+      req.params.blogId,
+      req.body,
+      { new : true }
+    ).populate('carPal')
+    res.json(post)
+  } catch (error) {
+    console.log(error)
+    res.json(error)
+  }
 }
 
 export {
