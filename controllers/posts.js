@@ -42,8 +42,13 @@ async function show(req, res){
   }
 }
 
+async function update(req, res){
+
+}
+
 export {
   create,
   index,
   show,
+  update,
  }
