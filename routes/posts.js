@@ -12,8 +12,8 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, postsCtrl.index)
 router.get('/:postId', checkAuth, postsCtrl.show)
 router.post('/', checkAuth, postsCtrl.create)
-router.put('/:blogId', checkAuth, postsCtrl.update)
-router.delete('/:blogId', checkAuth, postsCtrl.delete)
+router.put('/:postId', checkAuth, postsCtrl.update)
+router.delete('/:postId', checkAuth, postsCtrl.delete)
 
 
 export { router }

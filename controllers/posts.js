@@ -15,7 +15,7 @@ async function create(req, res){
     res.json(post)
   } catch (error) {
     console.log(error)
-    res.json(error)
+    res.status(500).json(error)  
   }
 }
 
@@ -27,7 +27,7 @@ async function index(req, res){
     res.json(posts)
   } catch (error) {
     console.log(error)
-    res.json(error)
+    res.status(500).json(error)
   }
 }
 
@@ -38,7 +38,7 @@ async function show(req, res){
     res.json(post)
   } catch (error) {
     console.log(error)
-    res.json(error)
+    res.status(500).json(error)
   }
 }
 
@@ -52,12 +52,21 @@ async function update(req, res){
     res.json(post)
   } catch (error) {
     console.log(error)
-    res.json(error)
+    res.status(500).json(error)
   }
 }
 
-async function deletePost(req, res){
-
+async function deletePost(req, res) {
+  try {
+    const post = await Post.findByIdAndDelete(req.params.postId)
+    const profile = await Profile.findById(req.user.profile)
+    profile.posts.remove({ _id:req.params.postId })
+    await profile.save()
+    res.json(post)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
 }
 
 export {
