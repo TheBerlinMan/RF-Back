@@ -56,9 +56,14 @@ async function update(req, res){
   }
 }
 
+async function deletePost(req, res){
+
+}
+
 export {
   create,
   index,
   show,
   update,
+  deletePost as delete,
  }
