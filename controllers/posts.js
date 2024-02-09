@@ -31,7 +31,12 @@ async function index(req, res){
   }
 }
 
+async function show(req, res){
+
+}
+
 export {
   create,
   index,
+  show,
  }
