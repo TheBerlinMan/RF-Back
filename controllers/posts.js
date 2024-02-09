@@ -19,6 +19,11 @@ async function create(req, res){
   }
 }
 
+async function index(req, res){
+
+}
+
 export {
   create,
+  index,
  }
